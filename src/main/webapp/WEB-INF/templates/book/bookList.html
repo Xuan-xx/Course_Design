@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>INFO</title>
+</head>
+<body>
+
+<table border="1" cellspacing="0" cellpadding="0" style="text-align:center">
+    <tr>
+        <th colspan="7">图书信息</th>
+    </tr>
+    <tr>
+        <th>书号</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>分类</th>
+        <th>藏书量</th>
+        <th>借出量</th>
+    </tr>
+    <tr th:each="book:${bookList}">
+        <td th:text="${book.num}"></th>
+        <td th:text="${book.name}"></th>
+        <td th:text="${book.author}"></th>
+        <td th:text="${book.press}"></th>
+        <td th:text="${book.category}"></th>
+        <td th:text="${book.collection}"></th>
+        <td th:text="${book.lending}"></th>
+    </tr>
+</table>
+<br>
+
+<a th:href="@{/}">返回首页</a>
+
+</body>
+</html>

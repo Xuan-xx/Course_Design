@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lib.DAO.AuthorIndexMapper">
+    <select id="selectAuthorIndex" parameterType="com.lib.bean.Book" resultType="com.lib.bean.AuthorIndex">
+        select * from author_index where author = #{author}
+    </select>
+
+    <insert id="insertAuthorIndex" parameterType="com.lib.bean.AuthorIndex">
+        insert into author_index(author,p,length) values
+            (#{author},#{p},#{length})
+    </insert>
+
+    <update id="updateAuthorIndex" parameterType="com.lib.bean.AuthorIndex">
+        update author_index set author=#{author},p=#{p},length=#{length} where author=#{author}
+    </update>
+</mapper>

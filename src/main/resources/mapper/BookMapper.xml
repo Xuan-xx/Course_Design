@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lib.DAO.BookMapper">
+    <resultMap id="bookMap" type="com.lib.bean.Book">
+        <id column="r_id" property="id"/>
+        <result column="b_num" property="num"/>
+        <result column="name" property="name"/>
+        <result column="p1" property="p1"/>
+        <result column="author" property="author"/>
+        <result column="p2" property="p2"/>
+        <result column="press" property="press"/>
+        <result column="p3" property="p3"/>
+        <result column="category" property="category"/>
+        <result column="collection" property="collection"/>
+        <result column="lending" property="lending"/>
+    </resultMap>
+    <select id="selectBook" parameterType="com.lib.bean.Book" resultMap="bookMap">
+        select * from book
+        <where>
+                <if test="num!=null and num!=''">
+                    b_num=#{num}
+                </if>
+                <if test="name!=null and name!=''">
+                    and name=#{name}
+                </if>
+                <if test="author!=null and author!=''">
+                    and author=#{author}
+                </if>
+                <if test="press!=null and press!=''">
+                    and press=#{press}
+                </if>
+        </where>
+    </select>
+
+    <select id="getBookMaxId" resultType="Integer">
+        select max(r_id) from book
+    </select>
+    
+    <insert id="insertBook" parameterType="com.lib.bean.Book">
+        insert into book(r_id,b_num,name, author, press, category, collection, lending,p1,p2,p3) values
+        (#{id},#{num},#{name},#{author},#{press},#{category},#{collection},#{lending},#{p1},#{p2},#{p3})
+    </insert>
+</mapper>

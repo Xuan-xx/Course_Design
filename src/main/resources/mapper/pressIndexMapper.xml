@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lib.DAO.PressIndexMapper">
+    <select id="selectPressIndex" parameterType="com.lib.bean.Book" resultType="com.lib.bean.PressIndex">
+        select * from press_index where press = #{press}
+    </select>
+
+    <insert id="insertPressIndex" parameterType="com.lib.bean.PressIndex">
+        insert into press_index(press,p,length) values
+            (#{press},#{p},#{length})
+    </insert>
+
+    <update id="updatePressIndex" parameterType="com.lib.bean.PressIndex">
+        update press_index set author=#{author},p=#{p},length=#{length} where press=#{press}
+    </update>
+</mapper>
