@@ -8,7 +8,7 @@
 
 <table border="1" cellspacing="0" cellpadding="0" style="text-align:center">
     <tr>
-        <th colspan="7">图书信息</th>
+        <th colspan="8">图书信息</th>
     </tr>
     <tr>
         <th>书号</th>
@@ -18,6 +18,7 @@
         <th>分类</th>
         <th>藏书量</th>
         <th>借出量</th>
+        <th>操作</th>
     </tr>
     <tr th:each="book:${bookList}">
         <td th:text="${book.num}"></th>
@@ -27,6 +28,12 @@
         <td th:text="${book.category}"></th>
         <td th:text="${book.collection}"></th>
         <td th:text="${book.lending}"></th>
+        <td>
+            <form th:action="@{'/book/'+${book.num}}" method="get">
+                <input type="submit" value="修改">
+            </form>
+        </td>
+        </th>
     </tr>
 </table>
 <br>

@@ -15,4 +15,8 @@
     <update id="updateAuthorIndex" parameterType="com.lib.bean.AuthorIndex">
         update author_index set author=#{author},p=#{p},length=#{length} where author=#{author}
     </update>
+
+    <delete id="deleteAuthorIndex" parameterType="com.lib.bean.AuthorIndex">
+        delete from author_index where author=#{author}
+    </delete>
 </mapper>

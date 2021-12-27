@@ -13,6 +13,10 @@
     </insert>
 
     <update id="updatePressIndex" parameterType="com.lib.bean.PressIndex">
-        update press_index set author=#{author},p=#{p},length=#{length} where press=#{press}
+        update press_index set press=#{press},p=#{p},length=#{length} where press=#{press}
     </update>
+
+    <delete id="deletePressIndex" parameterType="com.lib.bean.PressIndex">
+        delete from press_index where press=#{press}
+    </delete>
 </mapper>

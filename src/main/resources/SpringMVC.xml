@@ -38,6 +38,7 @@
     <mvc:view-controller path="/bookManage" view-name="bookManage"></mvc:view-controller>
     <mvc:view-controller path="/readerManage" view-name="readerManage"></mvc:view-controller>
     <mvc:view-controller path="/selectBook" view-name="book/selectBook"></mvc:view-controller>
+    <mvc:view-controller path="/insertBook" view-name="book/insertBook"></mvc:view-controller>
 
     <!--    注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>

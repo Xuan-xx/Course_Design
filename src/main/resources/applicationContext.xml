@@ -12,18 +12,6 @@
 
     <!--  spring用来控制业务逻辑。数据源、事务控制。。。  -->
     <context:property-placeholder location="classpath:dbconfig.properties"/>
-<!--        <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
-<!--            <property name="driver" value="${jdbc.driver}"></property>-->
-<!--            <property name="url" value="${jdbc.url}"></property>-->
-<!--            <property name="username" value="${jdbc.username}"></property>-->
-<!--            <property name="password" value="${jdbc.password}"></property>-->
-<!--        </bean>-->
-<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
-<!--        <property name="driverClass" value="${jdbc.driver}"></property>-->
-<!--        <property name="jdbcUrl" value="${jdbc.url}}"></property>-->
-<!--        <property name="user" value="${jdbc.username}"></property>-->
-<!--        <property name="password" value="${jdbc.password}"></property>-->
-<!--    </bean>-->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="${jdbc.driver}"></property>
         <property name="jdbcUrl" value="${jdbc.url}"></property>

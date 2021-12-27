@@ -19,27 +19,98 @@
     <select id="selectBook" parameterType="com.lib.bean.Book" resultMap="bookMap">
         select * from book
         <where>
-                <if test="num!=null and num!=''">
-                    b_num=#{num}
-                </if>
-                <if test="name!=null and name!=''">
-                    and name=#{name}
-                </if>
-                <if test="author!=null and author!=''">
-                    and author=#{author}
-                </if>
-                <if test="press!=null and press!=''">
-                    and press=#{press}
-                </if>
+            <if test="num!=null and num!=''">
+                b_num=#{num}
+            </if>
+            <if test="name!=null and name!=''">
+                and name=#{name}
+            </if>
+            <if test="author!=null and author!=''">
+                and author=#{author}
+            </if>
+            <if test="press!=null and press!=''">
+                and press=#{press}
+            </if>
         </where>
     </select>
 
-    <select id="getBookMaxId" resultType="Integer">
-        select max(r_id) from book
+    <select id="selectBookByNum" parameterType="String" resultMap="bookMap">
+        select *
+        from book
+        where b_num = #{num}
     </select>
-    
+
+
+    <select id="selectBookById" parameterType="Integer" resultMap="bookMap">
+        select *
+        from book
+        where r_id = #{id}
+    </select>
+
+    <select id="selectBookByP1" parameterType="Integer" resultMap="bookMap">
+        select *
+        from book
+        where p1 = #{p1}
+    </select>
+
+    <select id="selectBookByP2" parameterType="Integer" resultMap="bookMap">
+        select *
+        from book
+        where p2 = #{p2}
+    </select>
+
+    <select id="selectBookByP3" parameterType="Integer" resultMap="bookMap">
+        select *
+        from book
+        where p3 = #{p3}
+    </select>
+
+    <select id="getBookMaxId" resultType="Integer">
+        select max(r_id)
+        from book
+    </select>
+
     <insert id="insertBook" parameterType="com.lib.bean.Book">
-        insert into book(r_id,b_num,name, author, press, category, collection, lending,p1,p2,p3) values
-        (#{id},#{num},#{name},#{author},#{press},#{category},#{collection},#{lending},#{p1},#{p2},#{p3})
+        insert into book(r_id, b_num, name, author, press, category, collection, lending, p1, p2, p3)
+        values (#{id}, #{num}, #{name}, #{author}, #{press}, #{category}, #{collection}, #{lending}, #{p1}, #{p2},
+                #{p3})
     </insert>
+
+    <delete id="deleteBook" parameterType="com.lib.bean.Book">
+        delete
+        from book
+        where b_num = #{num}
+    </delete>
+
+    <update id="updateBook" parameterType="com.lib.bean.Book">
+        update book
+        <set>
+            <if test="num!=null and num!=''">
+                b_num=#{num},
+            </if>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="author!=null and author!=''">
+                author=#{author},
+            </if>
+            <if test="press!=null and press!=''">
+                press=#{press},
+            </if>
+            <if test="category!=null">
+                category=#{category},
+            </if>
+            <if test="collection!=null">
+                collection=#{collection},
+            </if>
+            <if test="lending!=null">
+                lending=#{lending},
+            </if>
+            <if test="p1!=null">p1=#{p1},</if>
+            <if test="p2!=null">p2=#{p2},</if>
+            <if test="p3!=null">p3=#{p3},</if>
+        </set>
+
+        where r_id=#{id}
+    </update>
 </mapper>

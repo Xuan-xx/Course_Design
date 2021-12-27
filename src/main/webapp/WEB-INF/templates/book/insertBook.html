@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>查询书本信息</title>
+    <title>导入图书</title>
 </head>
 <body>
-<h1>查询书本信息</h1>
-<p>支持根据书号、书名、作者、出版社单项查询与多项同时查询</p><br>
-<form th:action="@{/book}" method="get">
+<form th:action="@{/book}" method="post">
+    <h1>导入新的书籍</h1>
     书号:<input type="text" name="num"/><br>
     书名:<input type="text" name="name"/><br>
     作者:<input type="text" name="author"/><br>
     出版社:<input type="text" name="press"/><br>
-    <input type="submit" value="查询"><br>
+    分类：<input type="text" name="category"/><br>
+    藏书量：<input type="text" name="collection"/><br>
+    <input type="submit" value="导入"><br>
 </form>
 <br>
-
 </body>
 </html>

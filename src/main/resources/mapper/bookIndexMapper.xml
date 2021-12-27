@@ -15,4 +15,8 @@
     <update id="updateBookIndex" parameterType="com.lib.bean.BookIndex">
         update book_index set name=#{name},p=#{p},length=#{length} where name=#{name}
     </update>
+
+    <delete id="deleteBookIndex" parameterType="com.lib.bean.BookIndex">
+        delete from book_index where name=#{name}
+    </delete>
 </mapper>

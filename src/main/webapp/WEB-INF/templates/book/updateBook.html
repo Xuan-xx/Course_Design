@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>修改图书</title>
+</head>
+<body>
+
+<form th:action="@{/book}" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    <input type="hidden" name="id" th:value="${book.id}">
+    书号:<input type="text" name="num" th:value="${book.num}"/><br>
+    书名:<input type="text" name="name" th:value="${book.name}"/><br>
+    作者:<input type="text" name="author" th:value="${book.author}"/><br>
+    出版社:<input type="text" name="press" th:value="${book.press}"/><br>
+    分类：<input type="text" name="category" th:value="${book.category}"/><br>
+    藏书量：<input type="text" name="collection" th:value="${book.collection}"/><br>
+    借出数：<input type="text" name="lending" th:value="${book.lending}"/><br>
+    <input type="submit" value="更新"><br>
+</form>
+
+</body>
+</html>

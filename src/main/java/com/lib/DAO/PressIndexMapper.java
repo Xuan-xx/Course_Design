@@ -7,4 +7,5 @@ public interface PressIndexMapper {
     PressIndex selectPressIndex(Book book);
     Boolean insertPressIndex(PressIndex pressIndex);
     Boolean updatePressIndex(PressIndex pressIndex);
+    Boolean deletePressIndex(PressIndex pressIndex);
 }

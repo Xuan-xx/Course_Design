@@ -7,4 +7,5 @@ public interface BookIndexMapper {
     BookIndex selectBookIndex(Book book);
     Boolean insertBookIndex(BookIndex bookIndex);
     Boolean updateBookIndex(BookIndex bookIndex);
+    Boolean deleteBookIndex(BookIndex bookIndex);
 }
