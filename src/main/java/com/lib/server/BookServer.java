@@ -33,6 +33,10 @@ public class BookServer {
         return bookDAO.selectBook(new Book());
     }
 
+    public List<Book> selectBookByLending(){
+        return bookDAO.selectBookByLending();
+    }
+
     @Transactional
     public Boolean insertBook(Book book) {
 
@@ -341,6 +345,7 @@ public class BookServer {
             }
         }
 
+        System.err.println(newData);
         if (!bookDAO.updateBook(newData)){
             throw new RuntimeException("update book false");
         }

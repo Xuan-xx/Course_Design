@@ -71,6 +71,14 @@
         from book
     </select>
 
+    <select id="selectBookByLending" resultType="com.lib.bean.Book">
+        select *
+        from book b
+        where not collection = (
+            select lending from book where b.r_id = book.r_id
+        )
+    </select>
+
     <insert id="insertBook" parameterType="com.lib.bean.Book">
         insert into book(r_id, b_num, name, author, press, category, collection, lending, p1, p2, p3)
         values (#{id}, #{num}, #{name}, #{author}, #{press}, #{category}, #{collection}, #{lending}, #{p1}, #{p2},
@@ -104,7 +112,7 @@
             <if test="collection!=null and collection!=''">
                 collection=#{collection},
             </if>
-            <if test="lending!=null and lending!=''">
+            <if test="lending!=null ">
                 lending=#{lending},
             </if>
             <if test="p1!=null">p1=#{p1},</if>
@@ -113,5 +121,15 @@
         </set>
 
         where r_id=#{id}
+    </update>
+
+    <update id="updateBookLending" parameterType="com.lib.bean.Book">
+        update book
+        <set>
+            <if test="lending!=null and lending!=''">
+                lending=#{lending}
+            </if>
+        </set>
+        where b_num=#{num}
     </update>
 </mapper>

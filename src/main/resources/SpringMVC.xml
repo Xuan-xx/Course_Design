@@ -41,6 +41,7 @@
     <mvc:view-controller path="/insertBook" view-name="book/insertBook"></mvc:view-controller>
     <mvc:view-controller path="/selectReader" view-name="reader/selectReader"></mvc:view-controller>
     <mvc:view-controller path="/insertReader" view-name="reader/insertReader"></mvc:view-controller>
+    <mvc:view-controller path="/toReturn" view-name="b_r/return"></mvc:view-controller>
 
     <!--    注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>

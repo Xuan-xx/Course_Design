@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lib.DAO.BRMapper">
+    <select id="selectBR" resultType="Boolean">
+        select * from b_r where b_num=#{bNum} and r_id=#{rId}
+    </select>
+
+    <insert id="insertBR" parameterType="map">
+        insert into b_r(b_num,r_id,borrow_date) values (#{bNum},#{rId},now())
+    </insert>
+
+    <update id="updateBR" parameterType="map">
+        update b_r
+        <set>
+            <if test="rDate!=null">
+                return_date=#{rDate,javaType=java.time.LocalDateTime,jdbcType=TIMESTAMP}
+            </if>
+        </set>
+        where b_num=#{bNum} and r_id=#{rId} and return_date='0000-00-00 00:00:00'
+
+    </update>
+</mapper>

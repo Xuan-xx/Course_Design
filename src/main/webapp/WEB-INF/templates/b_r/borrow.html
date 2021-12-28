@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>借阅图书</title>
+</head>
+<body>
+    <h1>借阅图书</h1>
+    <form th:action="@{/borrow}" method="post">
+        借书读者学号：
+<!--        <select data-th-placeholder="请选择读者" name="r_id" required="required">-->
+<!--            <option value="" selected>请选择</option>-->
+<!--            <option th:each="reader:${readerList}"-->
+<!--                    th:value="${reader.id}" th:text="${reader.name}+','+${reader.num}">-->
+
+<!--            </option>-->
+<!--        </select>-->
+        <input type="text" name="r_id" required="required"><br>
+        借阅书籍书号：
+<!--        <select data-th-placeholder="请选择书籍" name="b_num" required="required">-->
+<!--            <option value="" selected>请选择</option>-->
+<!--            <option th:each="book:${bookList}" th:text="'《'+${book.name}+'》-'+${book.author}+'-'+${book.press}"-->
+<!--                    th:value="${book.num}" name="b_num"></option>-->
+<!--        </select>-->
+        <input type="text" name="b_num" required="required"><br>
+        <input type="submit" value="借书">
+    </form>
+
+</body>
+</html>

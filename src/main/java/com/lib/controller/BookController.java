@@ -40,7 +40,7 @@ public class BookController {
     @PostMapping("/book")
     public String insertBook(Book book){
         try{
-//            book.setLending(0);
+            book.setLending(0);
             if (bookServer.insertBook(book)) {
                 return "status/success";
             }else{

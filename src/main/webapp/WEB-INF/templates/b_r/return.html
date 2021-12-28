@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>还书</title>
+</head>
+<body>
+<h1>还书</h1>
+<form th:action="@{/return}" method="post">
+    <input type="hidden" name="_method" value="put">
+    还书人学号：<input type="text" name="r_id"><br>
+    所还书书号：<input type="text" name="b_num"><br>
+    <input type="submit" value="还书">
+</form>
+</body>
+</html>
