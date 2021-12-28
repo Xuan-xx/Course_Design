@@ -32,6 +32,7 @@
                 and press=#{press}
             </if>
         </where>
+        order by r_id
     </select>
 
     <select id="selectBookByNum" parameterType="String" resultMap="bookMap">
@@ -97,13 +98,13 @@
             <if test="press!=null and press!=''">
                 press=#{press},
             </if>
-            <if test="category!=null">
+            <if test="category!=null and category!=''">
                 category=#{category},
             </if>
-            <if test="collection!=null">
+            <if test="collection!=null and collection!=''">
                 collection=#{collection},
             </if>
-            <if test="lending!=null">
+            <if test="lending!=null and lending!=''">
                 lending=#{lending},
             </if>
             <if test="p1!=null">p1=#{p1},</if>

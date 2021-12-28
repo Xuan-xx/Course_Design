@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>修改读者</title>
+</head>
+<body>
+
+<form th:action="@{'/reader/'+${oldReader.id}}" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    学号:<input type="text" name="id" th:value="${oldReader.id}" required="required"/><br>
+    姓名:<input type="text" name="name" th:value="${oldReader.name}" required="required"/><br>
+    电话号:<input type="text" name="num" th:value="${oldReader.num}" required="required"/><br>
+    <input type="submit" value="更新"><br>
+</form>
+
+</body>
+</html>

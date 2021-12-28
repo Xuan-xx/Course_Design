@@ -7,12 +7,12 @@
 <body>
 <form th:action="@{/book}" method="post">
     <h1>导入新的书籍</h1>
-    书号:<input type="text" name="num"/><br>
-    书名:<input type="text" name="name"/><br>
-    作者:<input type="text" name="author"/><br>
-    出版社:<input type="text" name="press"/><br>
-    分类：<input type="text" name="category"/><br>
-    藏书量：<input type="text" name="collection"/><br>
+    书号:<input type="text" name="num" required="required"/><br>
+    书名:<input type="text" name="name" required="required"/><br>
+    作者:<input type="text" name="author" required="required"/><br>
+    出版社:<input type="text" name="press" required="required"/><br>
+    分类：<input type="text" name="category" required="required"/><br>
+    藏书量：<input type="text" name="collection" required="required"/><br>
     <input type="submit" value="导入"><br>
 </form>
 <br>

@@ -40,13 +40,26 @@ public class BookController {
     @PostMapping("/book")
     public String insertBook(Book book){
         try{
-            book.setLending(0);
+//            book.setLending(0);
             if (bookServer.insertBook(book)) {
                 return "status/success";
             }else{
                 return "status/error";
             }
         }catch (Exception e) {
+            return "status/error";
+        }
+    }
+
+    @DeleteMapping("/book/{num}")
+    public String deleteBook(@PathVariable("num")String num){
+        try {
+            if (bookServer.deleteBook(num)){
+                return "status/success";
+            }else{
+                return "status/error";
+            }
+        } catch (Exception e) {
             return "status/error";
         }
     }

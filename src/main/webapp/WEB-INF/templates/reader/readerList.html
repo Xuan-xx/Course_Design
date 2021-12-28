@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>READER INFO</title>
+</head>
+<body>
+
+<p style="color: red">借过书的读者无法被删除!</p>
+<table border="1" cellspacing="0" cellpadding="0" style="text-align:center">
+    <tr>
+        <th colspan="4">读者信息</th>
+    </tr>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>电话号码</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="reader:${readerList}">
+        <td th:text="${reader.id}"></th>
+        <td th:text="${reader.name}"></th>
+        <td th:text="${reader.num}"></th>
+        <td>
+            <form th:action="@{'/reader/'+${reader.id}}" method="get">
+                <input type="submit" value="修改">
+            </form>
+            <form th:action="@{'/reader/'+${reader.id}}" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="删除">
+            </form>
+        </td>
+        </th>
+    </tr>
+</table>
+<br>
+
+<a th:href="@{/}">返回首页</a>
+
+</body>
+</html>

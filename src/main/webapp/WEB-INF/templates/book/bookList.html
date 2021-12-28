@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>INFO</title>
+    <title>BOOK INFO</title>
 </head>
 <body>
 
+<p style="color: red">被借出的书籍无法被删除!</p>
 <table border="1" cellspacing="0" cellpadding="0" style="text-align:center">
     <tr>
         <th colspan="8">图书信息</th>
@@ -31,6 +32,10 @@
         <td>
             <form th:action="@{'/book/'+${book.num}}" method="get">
                 <input type="submit" value="修改">
+            </form>
+            <form th:action="@{'/book/'+${book.num}}" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" value="删除">
             </form>
         </td>
         </th>

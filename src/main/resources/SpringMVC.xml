@@ -39,10 +39,19 @@
     <mvc:view-controller path="/readerManage" view-name="readerManage"></mvc:view-controller>
     <mvc:view-controller path="/selectBook" view-name="book/selectBook"></mvc:view-controller>
     <mvc:view-controller path="/insertBook" view-name="book/insertBook"></mvc:view-controller>
+    <mvc:view-controller path="/selectReader" view-name="reader/selectReader"></mvc:view-controller>
+    <mvc:view-controller path="/insertReader" view-name="reader/insertReader"></mvc:view-controller>
 
     <!--    注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
-    <!--    文件上传解析器-->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+<!--    异常处理器-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception">status/error</prop>
+            </props>
+        </property>
+        <property name="exceptionAttribute" value="ex"></property>
+    </bean>
 </beans>

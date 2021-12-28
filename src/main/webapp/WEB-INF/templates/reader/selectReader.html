@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>查询读者信息</title>
+</head>
+<body>
+<h1>查询读者信息</h1>
+<p>支持根据学号、姓名、电话号单项查询与多项同时查询</p><br>
+<form th:action="@{/reader}" method="get">
+    学号:<input type="text" name="id"/><br>
+    姓名:<input type="text" name="name"/><br>
+    电话号:<input type="text" name="num"/><br>
+    <input type="submit" value="查询"><br>
+</form>
+<br>
+
+</body>
+</html>
